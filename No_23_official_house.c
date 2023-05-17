@@ -13,7 +13,8 @@ int main(void)
 	for (i = 0; i < index1; i++) {
 		for (j = 0; j < index2; j++) {
 			for (k = 0; k < index3; k++) {
-				rooms[index1][index2][index3] = 0;
+				rooms[i][j][k] = 0;
+				//printf("rooms[%d][%d][%d] = [%d]\n",i, j, k, rooms[i][j][k] );
 			}
 		}
 	}
@@ -21,21 +22,14 @@ int main(void)
 	scanf("%d", &n);
 	for(i = 0; i < n; i++) {
 		scanf("%d %d %d %d", &b, &f, &r, &v);
-		if (v < 0) { 
-			rooms[b-1][f-1][r-1] -= v;
-			printf("b = %d\nf = %d\nr = %d\nv = %d\nrooms = %d\n", b, f, r, v, rooms[b-1][f-1][r-1]);
-
-		} else {
-			rooms[b-1][f-1][r-1] += v;
-			printf("b = %d\nf = %d\nr = %d\nv = %d\nrooms = %d\n", b, f, r, v, rooms[b-1][f-1][r-1]);
-		}
+		rooms[b-1][f-1][r-1] += v;
 	}
 
-	/*for (i = 0; i < 8; i++) {
-		if(i % 2 == 0) { 
-			for (j = 0; j < index2; j++) {
-		       		for (k = 0; k < index3; k++) {
-					printf(" %d", rooms[i][j][k]);
+	for (i = 0; i < 7; i++) {
+		if (i % 2  == 0){	
+			for (j = 0; j < 3; j++) {
+				for (k = 0; k < 10; k++) {
+					printf(" %d", rooms[i / 2][j][k]);
 				}
 				printf("\n");
 			}
@@ -43,7 +37,7 @@ int main(void)
 			printf("####################\n");
 
 		}
-	}*/
+	}
 
 	return 0;
 }
